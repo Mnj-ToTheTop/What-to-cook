@@ -32,28 +32,33 @@ function App() {
   }
 
   return (
-    <main>
-      <article className="title">
-        <h1>Recipe Finder!</h1>
-      </article>
-      <div className="searchBox">
-        <input
-          type="text"
-          placeholder="Search here..."
-          name="search"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        ></input>
-        <button type="submit" onClick={handleSubmit}>
-          Submit
-        </button>
-      </div>
-      {searched == false ? null : loading ? (
-        <Loading />
-      ) : (
-        <RecipeList recipes={data.results} />
-      )}
-    </main>
+    <>
+      <head>
+        <title>Recipe Finder!!</title>
+      </head>
+      <main>
+        <article className="title">
+          <h1>Recipe Finder!</h1>
+        </article>
+        <div className="searchBox">
+          <input
+            type="text"
+            placeholder="Search here..."
+            name="search"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          ></input>
+          <button type="submit" onClick={handleSubmit}>
+            Submit
+          </button>
+        </div>
+        {searched == false ? null : loading ? (
+          <Loading />
+        ) : (
+          <RecipeList recipes={data.results} />
+        )}
+      </main>
+    </>
   );
 }
 
